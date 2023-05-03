@@ -1,0 +1,79 @@
+<?php
+
+// Configuración de la conexión a la base de datos
+$servername = "localhost";
+$username = "tu_usuario";
+$password = "tu_contraseña";
+$dbname = "tu_base_de_datos";
+
+// Crear la conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Función para ingresar nuevos empleados a la sucursal
+function ingresarEmpleado($nombre, $apellido, $accion_personal) {
+    global $conn;
+
+    $sql = "INSERT INTO empleados (nombre, apellido, accion_personal, estado) VALUES ('$nombre', '$apellido', '$accion_personal', 'espera')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Empleado ingresado correctamente.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Función para dar de baja a un empleado cambiando su estado a inactivo
+function darDeBajaEmpleado($id) {
+    global $conn;
+
+    $sql = "UPDATE empleados SET estado='inactivo' WHERE id=$id";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Empleado dado de baja correctamente.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Función para obtener la lista de préstamos abiertos por los cajeros
+function obtenerListaPrestamos() {
+    global $conn;
+
+    $sql = "SELECT * FROM prestamos WHERE responsable='cajero' AND estado='abierto'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id"]. " - Monto: " . $row["monto"]. " - Estado: " . $row["estado"]. "<br>";
+        }
+    } else {
+        echo "No se encontraron préstamos abiertos por cajeros.";
+    }
+}
+
+// Función para aprobar o rechazar un crédito
+function aprobarRechazarCredito($id, $accion) {
+    global $conn;
+
+    if ($accion == "aprobar") {
+        $sql = "UPDATE prestamos SET estado='aprobado' WHERE id=$id";
+    } else {
+        $sql = "UPDATE prestamos SET estado='rechazado' WHERE id=$id";
+    }
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Crédito actualizado correctamente.";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Cerrar la conexión a la base de datos
+$conn->close();
+
+?>
