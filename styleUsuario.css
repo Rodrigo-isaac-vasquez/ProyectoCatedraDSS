@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.banco img
+{
+    width: 100%;
+    height: 425px;
+    box-sizing: border-box;
+    background-size: cover;
+}
+
+nav
+{
+    padding: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #0B2447;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
+
+nav .menu
+{
+    float: left;
+    height: 100%;
+    line-height: 70px;
+}
+
+nav .menu h2
+{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+
+}
+
+nav ul
+{
+    float: right;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li
+{
+    list-style: none;
+}
+
+nav ul li a
+{
+    position: relative;
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+}
+nav ul li a:hover
+{
+    color: #A5D7E8;
+}
+nav ul li a::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -1;
+    transform-origin: right;
+    transform: scaleX(0);
+}
+
+nav ul li a:hover::before
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.info
+{
+    text-align: center;
+}
+
+/*Disenio del footer*/
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 20px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+    .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+  }
+  }
+  @media(max-width: 574px){
+    .footer-col{
+      width: 100%;
+  }
+  }
+  

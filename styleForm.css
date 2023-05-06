@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*
+{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vh;
+    background: #0A2647;
+}
+
+.container
+{
+    width: 80%;
+    padding: 20px;
+}
+
+.container h2
+{
+    width: 100%;
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container .row100
+{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container .row100 .col
+{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+
+.container .row100 .inputBox
+{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+}
+
+.container .row100 .inputBox input
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #fff;
+}
+
+.container .row100 .inputBox .text
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text
+{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox .line
+{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #0E8388;
+    transition: 0.4s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus + .line,
+.container .row100 .inputBox input:valid + .line
+{
+    height: 100%;
+}
+
+input[type="submit"]
+{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: #2C74B3;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+.contenedor-formulario
+{
+    padding: 12px;
+    margin: 10px;
+    background: #313131;
+    border-radius: 5px;
+}
+
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.content-select select::-ms-expand {
+    display: none;
+}
+
+.content-select{
+	max-width: 250px;
+	position: relative;
+}
+ 
+.content-select select{
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.content-select select:hover{
+	background: #B1E8CD;
+}
+ 
+/* 
+Creamos la fecha que aparece a la izquierda del select.
+Realmente este elemento es un cuadrado que sólo tienen
+dos bordes con color y que giramos con transform: rotate(-45deg);
+*/
+.content-select i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2AC176;
+	border-bottom:4px solid #2AC176;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+	transition: all 0.25s ease;
+}
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}
